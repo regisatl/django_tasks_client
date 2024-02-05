@@ -103,11 +103,13 @@ export default {
                   <form v-on:submit.prevent="submitForm">
                         <div class="form-group">
                               <label for="title">Title</label>
-                              <input type="text" class="form-control" id="title" v-model="title" placeholder="Entrez un titre...">
+                              <input type="text" class="form-control" id="title" v-model="title"
+                                    placeholder="Entrez un titre...">
                         </div>
                         <div class="form-group">
                               <label for="description">Description</label>
-                              <textarea class="form-control" id="description" v-model="description" placeholder="Entrez une description..."></textarea>
+                              <textarea class="form-control" id="description" v-model="description"
+                                    placeholder="Entrez une description..."></textarea>
                         </div>
                         <div class="form-group">
                               <button type="submit">Add Task</button>
@@ -118,7 +120,7 @@ export default {
                   <h2>Tasks</h2>
                   <ul class="tasks_list text-xl font-medium text-black">
                         <li v-for="task in tasks" :key="task.id">
-                              <h2>{{ task.title }}</h2>
+                              <h3>{{ task.title }}</h3>
                               <p>{{ task.description }}</p>
                               <button @click="toggleTask(task)">
                                     {{ task.completed ? 'Undo' : 'Complete' }}
@@ -137,9 +139,59 @@ body {
       margin: 0 auto;
 }
 
-h1 {
+h1,
+h2 {
       text-align: center;
       color: midnightblue;
+}
+
+.tasks_list {
+      list-style: none;
+      padding: 0;
+}
+
+.tasks_list li {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+}
+
+.tasks_list h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+}
+
+.tasks_list p {
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+}
+
+.tasks_list button {
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+      font-weight: medium;
+}
+
+.tasks_list button:first-of-type {
+      background-color: #48bb78;
+      color: #fff;
+      margin-right: 1rem;
+}
+.tasks_list button:first-of-type:hover{
+      background-color: #23b861;
+}
+.tasks_list button:last-of-type:hover {
+      background-color: #e02424;
+}
+
+.tasks_list button:last-of-type {
+      background-color: #e53e3e;
+      color: #fff;
 }
 
 .form-group {
@@ -154,6 +206,7 @@ h1 {
 
 .form-group input[type="text"],
 .form-group textarea {
+      color: midnightblue;
       display: block;
       width: 100%;
       padding: 0.8rem;
@@ -169,5 +222,10 @@ h1 {
       border: none;
       border-radius: 0.25rem;
       cursor: pointer;
+      font-weight: medium;
+}
+
+.form-group button:hover {
+      background-color: #2374f7;
 }
 </style>
