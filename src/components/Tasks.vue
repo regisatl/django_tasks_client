@@ -99,14 +99,15 @@ export default {
 <template>
       <div class="tasks_container">
             <div class="add_task">
+                  <h1>Add a task</h1>
                   <form v-on:submit.prevent="submitForm">
                         <div class="form-group">
                               <label for="title">Title</label>
-                              <input type="text" class="form-control" id="title" v-model="title">
+                              <input type="text" class="form-control" id="title" v-model="title" placeholder="Entrez un titre...">
                         </div>
                         <div class="form-group">
                               <label for="description">Description</label>
-                              <textarea class="form-control" id="description" v-model="description"></textarea>
+                              <textarea class="form-control" id="description" v-model="description" placeholder="Entrez une description..."></textarea>
                         </div>
                         <div class="form-group">
                               <button type="submit">Add Task</button>
@@ -114,8 +115,8 @@ export default {
                   </form>
             </div>
             <div class="tasks_content">
-                  <h1>Tasks</h1>
-                  <ul class="tasks_list">
+                  <h2>Tasks</h2>
+                  <ul class="tasks_list text-xl font-medium text-black">
                         <li v-for="task in tasks" :key="task.id">
                               <h2>{{ task.title }}</h2>
                               <p>{{ task.description }}</p>
@@ -129,4 +130,44 @@ export default {
       </div>
 </template>
 
-<style></style>
+<style>
+body {
+      font-family: Poppins;
+      max-width: 800px;
+      margin: 0 auto;
+}
+
+h1 {
+      text-align: center;
+      color: midnightblue;
+}
+
+.form-group {
+      margin-bottom: 1rem;
+}
+
+.form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+}
+
+.form-group button[type="submit"] {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+}
+</style>
